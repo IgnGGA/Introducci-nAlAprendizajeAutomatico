@@ -14,4 +14,13 @@ def trabajandoDatos():
     modelo_database='./modeloDataset.pkl'
     joblib.dump(modelo, modelo_database)
     print('Modelo guardado.')
-trabajandoDatos()
+    return (modelo_database)
+
+#trabajandoDatos()
+
+def llamandoUnModelo():
+    import joblib
+    cargandoModelo = joblib.load(trabajandoDatos())
+    print(f'Nosotros ahora hemos cargado los siguientes parametros:\n{cargandoModelo.params}')
+
+llamandoUnModelo()

@@ -7,8 +7,11 @@ def importandoDatos():
 
 def trabajandoDatos():
     import statsmodels.formula.api as smf
+    import joblib 
     datos=importandoDatos()
-    print(datos.head())
     modelo = smf.ols(formula = 'boot_size ~ harness_size', data = datos).fit()
     print('Modelo entrenado')
+    modelo_database='./modeloDataset.pkl'
+    joblib.dump(modelo, modelo_database)
+    print('Modelo guardado.')
 trabajandoDatos()

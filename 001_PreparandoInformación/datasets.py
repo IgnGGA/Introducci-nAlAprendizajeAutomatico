@@ -33,6 +33,10 @@ def cosasParaMostrar():
     patasPequenas=datos[datos.boot_size<40].copy()#Realizaremos una copia de la inforacion que contenga valores menores a 40 en la columna tamaño de bota
     print(f'Ahora tenemos {len(patasPequenas)} filas de información\nDonde las ultimas filas son{patasPequenas.tail()}')
 
-    plexp.scatter(patasPequenas, x='harness_size', y='boot_size')
+    plexp.scatter(patasPequenas, x='harness_size', y='boot_size').show()
+
+    patasPequenas['harness_size_imperial']=patasPequenas.harness_size/2.54
+
+    plexp.scatter(patasPequenas, x='harness_size_imperial', y='boot_size').show()
 
 cosasParaMostrar()
